@@ -107,6 +107,31 @@ var bikeIcon = L.AwesomeMarkers.icon({
           icon: 'bicycle'
         });
 
+
+var cbeiIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'Green',
+          icon: 'lightbulb-o'
+        });
+
+var treepeopleIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'darkpurple',
+          icon: 'leaf'
+        });
+
+var cityharvestIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'green',
+          icon: 'recycle'
+        });
+
+var girlstartIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'pink',
+          icon: 'female'
+        });
+
     var resizePID;
 
     function clearResize() {
@@ -416,8 +441,8 @@ Tyler now works for Azavea as a Geospatial Solution Specialist on the Data Analy
 
 #Jenna Glat
 ```
-L.marker([39.893236,-75.174648]).actions.addRemove(S.map)//CBEI
-L.marker([34.129134,-118.406276]).actions.addRemove(S.map)//TreePeople
+L.marker([39.893236,-75.174648], {icon: cbeiIcon}).bindPopup('<a href="http://www.cbei.psu.edu">Consortium for Building<br>Energy Innovation</a>').actions.addRemove(S.map)//CBEI
+L.marker([34.129134,-118.406276], {icon: treepeopleIcon}).bindPopup('<a href="http://www.treepeople.org">TreePeople</a>').actions.addRemove(S.map)//TreePeople
 - center: [30.4487, -103.6670]
 - zoom: 4
 ```
@@ -431,8 +456,8 @@ Jenna now works for Hubspot in Cambridge, MA as a _______
 
 #Amory Hillengas
 ```
-L.marker([40.7467294,-73.9848598]).actions.addRemove(S.map)//cityharvest
-L.marker([30.351282,-97.719814]).actions.addRemove(S.map)//girlstart
+L.marker([40.7467294,-73.9848598], {icon: cityharvestIcon}).bindPopup('<a href="http://www.cityharvest.org">City Harvest</a>').actions.addRemove(S.map)//cityharvest
+L.marker([30.351282,-97.719814], {icon: girlstartIcon}).bindPopup('<a href="http://www.girlstart.org">Girlstart</a>').actions.addRemove(S.map)//girlstart
 - center: [33.4681, -91.4722]
 - zoom: 5
 ```
