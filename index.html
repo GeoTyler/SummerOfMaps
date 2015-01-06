@@ -17,6 +17,11 @@
   <script src="leaflet.awesome-markers.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
+<style>
+        headshot {
+          width: 50px;
+        }
+</style>
 <body>
   <div id="map" style="width: 100%; height: 100%;"></div>
 
@@ -95,41 +100,53 @@
           icon: 'tree'
         });
 
-var hungerIcon = L.AwesomeMarkers.icon({
-          prefix: 'fa',
-          markerColor: 'orange',
-          icon: 'cutlery'
+        var hungerIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'orange',
+                  icon: 'cutlery'
         });
 
-var bikeIcon = L.AwesomeMarkers.icon({
-          prefix: 'fa',
-          markerColor: 'blue',
-          icon: 'bicycle'
+        var bikeIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'blue',
+                  icon: 'bicycle'
         });
 
 
-var cbeiIcon = L.AwesomeMarkers.icon({
-          prefix: 'fa',
-          markerColor: 'Green',
-          icon: 'lightbulb-o'
+        var cbeiIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'Green',
+                  icon: 'lightbulb-o'
         });
 
-var treepeopleIcon = L.AwesomeMarkers.icon({
-          prefix: 'fa',
-          markerColor: 'darkpurple',
-          icon: 'leaf'
+        var treepeopleIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'darkpurple',
+                  icon: 'leaf'
         });
 
-var cityharvestIcon = L.AwesomeMarkers.icon({
-          prefix: 'fa',
-          markerColor: 'green',
-          icon: 'recycle'
+        var cityharvestIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'green',
+                  icon: 'recycle'
         });
 
-var girlstartIcon = L.AwesomeMarkers.icon({
-          prefix: 'fa',
-          markerColor: 'pink',
-          icon: 'female'
+        var girlstartIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'pink',
+                  icon: 'female'
+        });
+
+        var havenIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'orange',
+                  icon: 'database'
+        });
+
+        var cdcIcon = L.AwesomeMarkers.icon({
+                  prefix: 'fa',
+                  markerColor: 'red',
+                  icon: 'paint-brush'
         });
 
     var resizePID;
@@ -363,7 +380,6 @@ L.marker([39.9588, -75.1586],{icon: azaveaIcon}).bindPopup('<a href="http://www.
 ```
 
 ##Where are they now?
-![som](http://www.azavea.com/blogs/newsletter/wp-content/uploads/2013/08/som_newsletter.png)
 ![som](http://www.azavea.com/blogs/atlas/wp-content/uploads/2013/09/som_series_02.jpg)
 
 Summer of Maps offers stipends to student GIS analysts to perform geospatial data analysis for non-profit organizations. Every year we match up non-profit organizations that have spatial analysis needs with talented students of GIS to implement projects over a three-month period during the summer.
@@ -471,8 +487,8 @@ Amory now works for the Philadelphia Department of Public Health as a GIS Analys
 
 #Tim St. Onge
 ```
-L.marker([41.3063362,-72.9252572]).actions.addRemove(S.map)//datahaven
-L.marker([39.953826,-75.160349]).actions.addRemove(S.map)//cdc
+L.marker([41.3063362,-72.9252572], {icon: havenIcon}).bindPopup('<a href="http://www.ctdatahaven.org">Data Haven</a>').actions.addRemove(S.map)//datahaven
+L.marker([39.953826,-75.160349], {icon: cdcIcon}).bindPopup('<a href="http://www.cdesignc.org">Community Design Collaborative</a>').actions.addRemove(S.map)//cdc
 - center: [40.3507, -74.6329]
 - zoom: 8
 ```
@@ -493,23 +509,22 @@ Start thinking about your journey and apply at [SummerofMaps.com](http://www.sum
 
 
 ```
-L.marker([40.7348, -73.9970]).actions.addRemove(S.map)
-L.marker([39.859694, -75.782794]).actions.addRemove(S.map)//stroud
-L.marker([40.1226764, -75.4380072]).actions.addRemove(S.map)//audubon
-L.marker([39.9500635,-75.1520433]).actions.addRemove(S.map)//notebook
-L.marker([39.9749997,-75.1575918]).actions.addRemove(S.map)//working families
-L.marker([38.9069328,-77.0429695]).actions.addRemove(S.map)//sunlight
-L.marker([39.9496657,-75.1680264]).actions.addRemove(S.map)//DVAEYC
-L.marker([39.955963,-75.173106]).actions.addRemove(S.map)//PHS
-L.marker([32.787726,-96.797903]).actions.addRemove(S.map)//Texas Tree
-L.marker([39.9673, -75.1697]).actions.addRemove(S.map)//Hunger
-L.marker([39.9506, -75.1611]).actions.addRemove(S.map)//Bike
-L.marker([39.893236,-75.174648]).actions.addRemove(S.map)//CBEI
-L.marker([34.129134,-118.406276]).actions.addRemove(S.map)//TreePeople
-L.marker([40.7467294,-73.9848598]).actions.addRemove(S.map)//cityharvest
-L.marker([30.351282,-97.719814]).actions.addRemove(S.map)//girlstart
-L.marker([41.3063362,-72.9252572]).actions.addRemove(S.map)//datahaven
-L.marker([39.953826,-75.160349]).actions.addRemove(S.map)//cdc
+L.marker([39.859694, -75.782794], {icon: stroudIcon}).bindPopup('<a href="http://www.stroudcenter.org">Stroud Water Research Center</a>').openPopup().actions.addRemove(S.map)//stroud
+L.marker([40.1226764, -75.4380072],{icon: audubonIcon}).bindPopup('<a href="http://pa.audubon.org">Audubon Pennsylvania</a>').actions.addRemove(S.map)//audubon
+L.marker([39.9500635,-75.1520433], {icon: notebookIcon}).bindPopup('<a href="http://www.thenotebook.org">Philadelphia Public School Notebook</a>').openPopup().actions.addRemove(S.map)//notebook
+L.marker([39.9749997,-75.1575918], {icon: familiesIcon}).bindPopup('<a href="http://www.cwphilly.org">Campaign for Working Families</a>').openPopup().actions.addRemove(S.map)//working families
+L.marker([38.9069328,-77.0429695], {icon: sunlightIcon}).bindPopup('<a href="http://www.sunlightfoundation.org">Sunlight Foundation</a>').actions.addRemove(S.map)//sunlight
+L.marker([39.9496657,-75.1680264], {icon: dvaeycIcon}).bindPopup('<a href="http://www.dvaeyc.org">DVAEYC</a>').actions.addRemove(S.map)//DVAEYC
+L.marker([39.955963,-75.173106], {icon: phsIcon}).bindPopup('<a href="http://www.phsonline.org">Pennsylvania Horticultural Society</a>').actions.addRemove(S.map)//PHS
+L.marker([32.787726,-96.797903], {icon: ttreeIcon}).bindPopup('<a href="http://www.texastrees.org">Texas Tree Foundation</a>').actions.addRemove(S.map)//Texas Tree
+L.marker([39.9673, -75.1697], {icon: hungerIcon}).bindPopup('<a href="http://www.hungercoalition.org">Greater Philadelphia <br>Coalition Against Hunger</a>').actions.addRemove(S.map)//Hunger
+L.marker([39.9506, -75.1611], {icon: bikeIcon}).bindPopup('<a href="http://www.bicyclecoalition.org">Bicycle Coalition</a>').actions.addRemove(S.map)//Bike
+L.marker([39.893236,-75.174648], {icon: cbeiIcon}).bindPopup('<a href="http://www.cbei.psu.edu">Consortium for Building<br>Energy Innovation</a>').actions.addRemove(S.map)//CBEI
+L.marker([34.129134,-118.406276], {icon: treepeopleIcon}).bindPopup('<a href="http://www.treepeople.org">TreePeople</a>').actions.addRemove(S.map)//TreePeople
+L.marker([40.7467294,-73.9848598], {icon: cityharvestIcon}).bindPopup('<a href="http://www.cityharvest.org">City Harvest</a>').actions.addRemove(S.map)//cityharvest
+L.marker([30.351282,-97.719814], {icon: girlstartIcon}).bindPopup('<a href="http://www.girlstart.org">Girlstart</a>').actions.addRemove(S.map)//girlstart
+L.marker([41.3063362,-72.9252572], {icon: havenIcon}).bindPopup('<a href="http://www.ctdatahaven.org">Data Haven</a>').actions.addRemove(S.map)//datahaven
+L.marker([39.953826,-75.160349], {icon: cdcIcon}).bindPopup('<a href="http://www.cdesignc.org">Community Design Collaborative</a>').actions.addRemove(S.map)//cdc
 - center: [31.4287, -108.9404]
 - zoom: 4
 ```
