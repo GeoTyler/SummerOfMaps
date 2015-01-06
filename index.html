@@ -4,12 +4,17 @@
   <title>Odyssey.js Slides</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <link rel="icon" type="image/x-icon" href="http://cartodb.github.io/odyssey.js/sandbox/favicon.png">
   <link rel="icon" type="image/png" href="http://cartodb.github.io/odyssey.js/sandbox/favicon.png">
 
   <link rel="stylesheet" href="http://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/themes/css/cartodb.css">
   <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/slides.css">
+  <link rel="stylesheet" href="leaflet.awesome-markers.css">
+  <script src="leaflet.awesome-markers.js"></script>
   <script src="http://cartodb.github.io/odyssey.js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
@@ -35,6 +40,60 @@
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
 
   <script>
+          //Section for initializing all icons
+        var azaveaIcon = L.AwesomeMarkers.icon({
+          prefix: 'ion', //font awesome instead of bootstrap
+          markerColor: 'blue',
+          icon: 'earth'
+        });
+
+        var stroudIcon = L.AwesomeMarkers.icon({
+          prefix: 'ion', //font awesome instead of bootstrap
+          markerColor: 'blue',
+          icon: 'waterdrop'
+        });
+
+        var audubonIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa', //font awesome instead of bootstrap
+          markerColor: 'cadetblue',
+          icon: 'binoculars'
+        });
+
+        var notebookIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa', //font awesome instead of bootstrap
+          markerColor: 'green',
+          icon: 'graduation-cap'
+        });
+
+        var familiesIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa', //font awesome instead of bootstrap
+          markerColor: 'darkgreen',
+          icon: 'group'
+        });
+
+        var sunlightIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'orange',
+          icon: 'sun-o'
+        });
+
+        var dvaeycIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'blue',
+          icon: 'child'
+        });
+
+        var phsIcon = L.AwesomeMarkers.icon({
+          prefix: 'ion',
+          markerColor: 'blue',
+          icon: 'leaf'
+        });
+
+        var ttreeIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'blue',
+          icon: 'tree'
+        });
     var resizePID;
 
     function clearResize() {
@@ -124,6 +183,8 @@
 
         click(document.querySelectorAll('.next')).then(seq.next, seq)
         click(document.querySelectorAll('.prev')).then(seq.prev, seq)
+
+
 
         var slides = O.Actions.Slides('slides');
         var story = O.Story()
@@ -258,7 +319,7 @@
 
 #Azavea's [Summer of Maps](http://www.summerofmaps.com) Alumni
 ```
-L.marker([39.9588, -75.1586]).actions.addRemove(S.map)
+L.marker([39.9588, -75.1586],{icon: azaveaIcon}).bindPopup('<a href="http://www.azavea.com">Azavea HQ</a>').addTo(S.map).actions.addRemove(S.map)
 - center: [39.9588, -75.1586]
 - zoom: 16
 ```
@@ -275,8 +336,8 @@ Summer of Maps offers stipends to student GIS analysts to perform geospatial dat
 #Angela Sakrison
 ![headshot](http://summerofmaps.wordpress.azavea.com/wp-content/uploads/sites/6/2013/11/angela_headshot.jpg)
 ```
-L.marker([39.859694, -75.782794]).actions.addRemove(S.map)//stroud
-L.marker([40.1226764, -75.4380072]).actions.addRemove(S.map)//audubon
+L.marker([39.859694, -75.782794], {icon: stroudIcon}).bindPopup('<a href="http://www.stroudcenter.org">Stroud Water Research Center</a>').openPopup().addTo(S.map).actions.addRemove(S.map)//stroud
+L.marker([40.1226764, -75.4380072],{icon: audubonIcon}).bindPopup('<a href="http://pa.audubon.org">Audubon Pennsylvania</a>').addTo(S.map).actions.addRemove(S.map)//audubon
 - center: [39.9750, -75.6525]
 - zoom: 10
 ```
@@ -288,8 +349,8 @@ Angela is now a Geography PhD student at the Arizona State University School of 
 #Nse-Abasi Umoh Esema
 ![headshot](http://summerofmaps.wordpress.azavea.com/wp-content/uploads/sites/6/2013/11/nse_headshot.jpg)
 ```
-L.marker([39.9500635,-75.1520433]).actions.addRemove(S.map)//notebook
-L.marker([39.9749997,-75.1575918]).actions.addRemove(S.map)//working families
+L.marker([39.9500635,-75.1520433], {icon: notebookIcon}).bindPopup('<a href="http://www.thenotebook.org">Philadelphia Public School Notebook</a>').openPopup().actions.addRemove(S.map)//notebook
+L.marker([39.9749997,-75.1575918], {icon: familiesIcon}).bindPopup('<a href="http://www.cwphilly.org">Campaign for Working Families</a>').openPopup().actions.addRemove(S.map)//working families
 - center: [39.9581, -75.1627]
 - zoom: 14
 ```
@@ -302,8 +363,8 @@ Nse is now Program Director for Community Media Projects at the MIT Community In
 #Lena Ferguson
 ![headshot](http://summerofmaps.wordpress.azavea.com/wp-content/uploads/sites/6/2013/11/lena_headshot.jpg)
 ```
-L.marker([38.9069328,-77.0429695]).actions.addRemove(S.map)//sunlight
-L.marker([39.9496657,-75.1680264]).actions.addRemove(S.map)//DVAEYC
+L.marker([38.9069328,-77.0429695], {icon: sunlightIcon}).bindPopup('<a href="http://www.sunlightfoundation.org">Sunlight Foundation</a>').actions.addRemove(S.map)//sunlight
+L.marker([39.9496657,-75.1680264], {icon: dvaeycIcon}).bindPopup('<a href="http://www.dvaeyc.org">DVAEYC</a>').actions.addRemove(S.map)//DVAEYC
 - center: [39.0235, -76.5665]
 - zoom: 8
 ```
@@ -316,8 +377,8 @@ Lena now works for the _______.
 #Julia Reeves
 ![headshot](http://summerofmaps.wordpress.azavea.com/wp-content/uploads/sites/6/2013/11/julia_headshot.jpg)
 ```
-L.marker([39.955963,-75.173106]).actions.addRemove(S.map)//PHS
-L.marker([32.787726,-96.797903]).actions.addRemove(S.map)//Texas Tree
+L.marker([39.955963,-75.173106], {icon: phsIcon}).bindPopup('<a href="http://www.phsonline.org">Pennsylvania Horticultural Society</a>').actions.addRemove(S.map)//PHS
+L.marker([32.787726,-96.797903], {icon: ttreeIcon}).bindPopup('<a href="http://www.texastrees.org">Texas Tree Foundation</a>').actions.addRemove(S.map)//Texas Tree
 - center: [35.7465, -90.8130]
 - zoom: 5
 ```
