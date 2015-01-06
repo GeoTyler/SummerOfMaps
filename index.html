@@ -67,7 +67,7 @@
 
         var familiesIcon = L.AwesomeMarkers.icon({
           prefix: 'fa', //font awesome instead of bootstrap
-          markerColor: 'darkgreen',
+          markerColor: 'red',
           icon: 'group'
         });
 
@@ -79,21 +79,34 @@
 
         var dvaeycIcon = L.AwesomeMarkers.icon({
           prefix: 'fa',
-          markerColor: 'blue',
+          markerColor: 'purple',
           icon: 'child'
         });
 
         var phsIcon = L.AwesomeMarkers.icon({
           prefix: 'ion',
-          markerColor: 'blue',
+          markerColor: 'green',
           icon: 'leaf'
         });
 
         var ttreeIcon = L.AwesomeMarkers.icon({
           prefix: 'fa',
-          markerColor: 'blue',
+          markerColor: 'darkgreen',
           icon: 'tree'
         });
+
+var hungerIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'orange',
+          icon: 'cutlery'
+        });
+
+var bikeIcon = L.AwesomeMarkers.icon({
+          prefix: 'fa',
+          markerColor: 'blue',
+          icon: 'bicycle'
+        });
+
     var resizePID;
 
     function clearResize() {
@@ -393,8 +406,8 @@ Julia Reeves is now a _________
 Tyler worked for the [Greater Philadelphia Coalition Against Hunger](http://www.hungercoalition.org/sites/hungercoalition.org/files/framework_logo.png) and [The Bicycle Coalition of Greater Philadelphia](http://bicyclecoalition.org/wp-content/themes/bikeco/css/img/logo.jpg).
 
 ```
-L.marker([39.9673, -75.1697]).actions.addRemove(S.map)//Hunger
-L.marker([39.9506, -75.1611]).actions.addRemove(S.map)//Bike
+L.marker([39.9673, -75.1697], {icon: hungerIcon}).bindPopup('<a href="http://www.hungercoalition.org">Greater Philadelphia <br>Coalition Against Hunger</a>').actions.addRemove(S.map)//Hunger
+L.marker([39.9506, -75.1611], {icon: bikeIcon}).bindPopup('<a href="http://www.bicyclecoalition.org">Bicycle Coalition</a>').actions.addRemove(S.map)//Bike
 - center: [39.9505, -75.1612]
 - zoom: 13
 ```
