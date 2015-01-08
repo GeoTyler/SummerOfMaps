@@ -24,12 +24,14 @@
     position:absolute;
     top:40px;
     left:40px;
-    width:320px;
+    width:400px;
     padding:40px;
     padding-right:20px;
     background-color:#fff;
-    background-color:rgba(255, 255, 255, 0.9);
-    z-index:10
+    background-color:rgba(240, 240, 240, 0.9);
+    z-index:10;
+    border-color:#fff;
+    border-color:rgba(100,100,100,1)
 }
 #slides_container.visible {
     display:block !important
@@ -44,7 +46,7 @@
 }
 #slides_container .slide.scrolled img {
     margin:20px 0;
-    width:100%
+    width:150px
 }
 #slides_container .slide strong {
     font-family:"AleoBold"
@@ -77,7 +79,7 @@
 #slides_container p, #slides_container span {
     font-family:AleoRegular, Serif;
     color:#166D8A;
-    font-size:15px;
+    font-size:16px;
     line-height:21px;
     margin:0 0 19px 0
 }
@@ -88,6 +90,7 @@
 #slides_container a:hover {
     text-decoration:underline
 }
+
 </style>
 <body>
   <div id="map" style="width: 100%; height: 100%;"></div>
@@ -447,7 +450,6 @@ L.marker([39.9588, -75.1586],{icon: azaveaIcon}).bindPopup('<a href="http://www.
 ```
 
 ##Where are they now?
-![som](http://www.azavea.com/blogs/atlas/wp-content/uploads/2013/09/som_series_02.jpg)
 
 Summer of Maps offers stipends to student GIS analysts to perform geospatial data analysis for non-profit organizations. Every year we match up non-profit organizations that have spatial analysis needs with talented students of GIS to implement projects over a three-month period during the summer.
 
